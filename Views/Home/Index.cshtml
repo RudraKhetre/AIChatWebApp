@@ -1,0 +1,55 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Chat Assistant</title>
+    <link rel="stylesheet" href="/css/chat.css" />
+    <!-- Prism light theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" />
+</head>
+<body style="background-color:aquamarine">
+    <div class="container-chat">
+        <div class="chat-card">
+            <div class="header">
+                <div class="badge">777</div>
+                <div>
+                    <h3>Rudra Khetre</h3>
+                    <div class="filepath">RK-AI-Bot</div>
+                </div>
+            </div>
+
+            <div id="chat"></div>
+
+            <div class="chat-footer">
+                <div class="input-bar">
+                    <div class="input-inner">
+                        <input id="message" class="input-field" placeholder="Ask anything" autocomplete="off" />
+                        <button id="sendBtn" class="action-btn">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 21L23 12 2 3v7l15 2-15 2v7z" fill="white"/></svg>
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Code formatting + highlighting libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.7/js/lib/beautify.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.7/js/lib/beautify-html.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-beautify@1.14.7/js/lib/beautify-css.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+
+    <script src="/js/chat.js"></script>
+</body>
+</html>
