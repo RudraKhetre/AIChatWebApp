@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Net;
 
 namespace AIChatWebApp.Services
 {
@@ -20,6 +21,12 @@ namespace AIChatWebApp.Services
         }
         public async Task<string> AskAI(string prompt)
         {
+            // If API key is not configured, return a clear message
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                return "AI request error: API key is not configured. Set 'Groq:ApiKey' in appsettings.json or use user secrets: dotnet user-secrets set \"Groq:ApiKey\" \"YOUR_KEY\"";
+            }
+
             // Ensure Authorization header is set per request to avoid leaking between callers
             if (_httpClient.DefaultRequestHeaders.Contains("Authorization"))
                 _httpClient.DefaultRequestHeaders.Remove("Authorization");
@@ -54,6 +61,11 @@ namespace AIChatWebApp.Services
 
             if (!response.IsSuccessStatusCode)
             {
+                if (response.StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    return "AI response error: Unauthorized - The API key appears to be invalid. Ensure 'Groq:ApiKey' is set to a valid key.";
+                }
+
                 return $"AI response error: {response.StatusCode} - {result}";
             }
 

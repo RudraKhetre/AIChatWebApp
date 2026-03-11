@@ -1,0 +1,12 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "Groq": {
+    "ApiKey": "<YOUR_GROQ_API_KEY>"
+  },
+  "AllowedHosts": "*"
+}
